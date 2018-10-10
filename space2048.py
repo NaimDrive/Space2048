@@ -15,8 +15,8 @@ from space2048_win import *
 pygame.init()
 screen = pygame.display.set_mode((1280, 720), pygame.FULLSCREEN)
 done = False
-police=pygame.font.Font("contenu/Roboto-Black.ttf",26)
-pygame.mixer.music.load("contenu/musique_accueil.mp3")
+police=pygame.font.Font("Roboto-Black.ttf",26)
+pygame.mixer.music.load("musique_accueil.mp3")
 etat=menu
 
 menu(screen, police)
@@ -71,10 +71,6 @@ while not done:
                 menu(screen,police)
                 etat = menu
 
-            if (mouse[0]>335 and mouse[0]<635 and mouse[1]>545 and mouse[1]<625 and etat==win):
-                menu(screen,police)
-                etat = menu
-
     if etat==sp1.game or etat==sp2.game or etat==sp3.game:
         if sp1.gameOver() or sp2.gameOver() or sp3.gameOver():
             over(screen,police)
@@ -93,15 +89,16 @@ while not done:
             win(screen,police)
             etat = win
 
-            sp1.en = []
-            sp1.joueur = Player(640) 
-                
-            sp2.en = []
-            sp2.joueur = Player(640) 
 
-            sp3.en = []
-            sp3.joueur = Player(640)
+ 
+        
+
+    
+            
 
 
     mouse=mousepos()
+    
+
+
     pygame.display.flip()

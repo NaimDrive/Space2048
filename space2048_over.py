@@ -14,7 +14,7 @@ def get_image(path):
 
 def over(screen,police):
 	#BG
-	screen.blit(get_image('contenu/accueil.bmp'), (0,0,20, 20))
+	screen.blit(get_image('accueil.bmp'), (0,0,20, 20))
 	#GAME OVER
 	over=pygame.font.SysFont('arial',100)
 	over_space=over.render("Game   Over",True,(255,255,255))
@@ -23,5 +23,6 @@ def over(screen,police):
 	overpos.centery=180
 	screen.blit(over_space,overpos)
 	#RECT
-	rectRejouer=pygame.draw.rect(screen, (168,231,248), [335, 380, 300, 80],2)
-	screen.blit(police.render('Rejouer',True,(168,231,248)),(440,405))
+	rectRejouer=pygame.draw.rect(screen, (0,0, 0), pygame.Rect(335, 380, 300, 80))
+	screen.blit(police.render('Rejouer',True,(255,255,255)),(440,405))
+	

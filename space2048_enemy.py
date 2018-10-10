@@ -17,34 +17,34 @@ class Enemy:
 
     def setPlanete(self):
         if self.value == 2:
-            planete = pygame.image.load("contenu/planet2.png").convert_alpha()
+            planete = pygame.image.load("planete/planet2.png").convert_alpha()
             return planete
         elif self.value == 4:
-            planete = pygame.image.load("contenu/planet4.png").convert_alpha()
+            planete = pygame.image.load("planete/planet4.png").convert_alpha()
             return planete
         elif self.value == 8:
-            planete = pygame.image.load("contenu/planet8.png").convert_alpha()
+            planete = pygame.image.load("planete/planet8.png").convert_alpha()
             return planete
         elif self.value == 16:
-            planete = pygame.image.load("contenu/planet16.png").convert_alpha()
+            planete = pygame.image.load("planete/planet16.png").convert_alpha()
             return planete
         elif self.value == 32:
-            planete = pygame.image.load("contenu/planet32.png").convert_alpha()
+            planete = pygame.image.load("planete/planet32.png").convert_alpha()
             return planete
         elif self.value == 64:
-            planete = pygame.image.load("contenu/planet64.png").convert_alpha()
+            planete = pygame.image.load("planete/planet64.png").convert_alpha()
             return planete
         elif self.value == 128:
-            planete = pygame.image.load("contenu/planet128.png").convert_alpha()
+            planete = pygame.image.load("planete/planet128.png").convert_alpha()
             return planete
         elif self.value == 256:
-            planete = pygame.image.load("contenu/planet256.png").convert_alpha()
+            planete = pygame.image.load("planete/planet256.png").convert_alpha()
             return planete
         elif self.value == 512:
-            planete = pygame.image.load("contenu/planet512.png").convert_alpha()
+            planete = pygame.image.load("planete/planet512.png").convert_alpha()
             return planete
         elif self.value == 1024:
-            planete = pygame.image.load("contenu/planet1024.png").convert_alpha()
+            planete = pygame.image.load("planete/planet1024.png").convert_alpha()
             return planete
 
     def getPlanete(self):

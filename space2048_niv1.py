@@ -7,27 +7,37 @@ pygame.init()
 pygame.font.init()
 from space2048_enemy import *
 from space2048_player import *
+from space2048_menu import *
+
 
 
 font = pygame.font.SysFont('Courrier New', 30)
 
 
 display = pygame.display.set_mode((1280, 720), pygame.FULLSCREEN)
-fond = pygame.image.load("contenu/fond.jpg").convert()
+fond = pygame.image.load("planete/fond.jpg").convert()
 clock = pygame.time.Clock()
 FPS = 60
 speed = 10*1.3
-vitesse_cube = 1*1.5
+vitesse_cube = 1*1.3
 score = 2
 en = []
 
+#etat=menu
+#menu(display,font)
+
 joueur = Player(640)
 
+#Pour test le win
+#joueur.setValue(1024)
 
 
 def motion_test():
+    #joueur = Player(640)
+    score1 = score
+    #print(score1)
     while not gameOver() and not won(): 
-        #           Quitter
+        # check quit
         for e in pygame.event.get():
             if e.type == pygame.QUIT or e.type == pygame.KEYDOWN and e.key == pygame.K_ESCAPE:
                 pygame.quit()
@@ -51,16 +61,17 @@ def motion_test():
             display.blit(en[i].getPlanete(), (en[i].getX(), en[i].getY()))
         pygame.display.flip()
 
-        #       SCORE 
         afficherScore(joueur.getValue())
 
-        #       Vitesse enemy
         updateCube(len(en))
-
-        #       affiche les ennemies
+        # draw the rect and flip the display
         display.blit(joueur.getImage(), (joueur.getX(), joueur.getY()))
 
-        #       les fps
+
+        # Check colisions
+        score1 = checkColisions(joueur, score)
+
+        # tick the clock
         pygame.display.flip()
         clock.tick(FPS)
     
@@ -72,13 +83,13 @@ def afficherScore(score):
     pygame.display.flip()
 
 
-def genererCube(a):
-    for i in range(a):
-        en.append(Enemy(random.randint(40,1240),vitesse_cube))
+def genererCube(difficulte):
+    for i in range(difficulte):
+        en.append(Enemy(random.randint(0,1280),1))
 
 
-def updateCube(a):
-    for i in range(a):
+def updateCube(difficulte):
+    for i in range(difficulte):
         en[i].update(1)
 
 def won():
@@ -91,7 +102,7 @@ def gameOver():
     if checkColisions(joueur, joueur.getValue()) == "Game over":
         return True
     else:
-        return False
+        False
 
 
 def checkColisions(joueur, score):
@@ -102,7 +113,14 @@ def checkColisions(joueur, score):
         if en[i].getX() <= joueur.getX() + 40 and en[i].getX() >= joueur.getX()-40:
             if en[i].getY() <= joueur.getY() + 40 and en[i].getY() >= joueur.getY()-40 and en[i].getvalue() == joueur.getValue():
                 if joueur.getValue() == 1024 and en[i].getvalue() == 1024:
+                    #score = joueur.setValue(2048)
+                    print("C'est gagné non d'une pipe !")
+                    print("Score : " +  str(2048))
+                    #win(display,font)
+                    #etat = menu
                     return "Won"
+                    #pygame.quit()
+                    #sys.exit()
                 else:
                     joueur.setValue(en[i].getvalue()*2)
                     print("valeur du joueur :", joueur.getValue())
@@ -112,6 +130,8 @@ def checkColisions(joueur, score):
                     return score
             if en[i].getY() <= joueur.getY() + 40 and en[i].getY() >= joueur.getY()-40:
                 if joueur.getValue() == 2 and en[i].getvalue() != 2:
+                    print("Game over")
+                    print("Score : ", score)
                     return "Game over"
                     
                 elif en[i].getvalue() < joueur.getValue():
@@ -128,6 +148,14 @@ def checkColisions(joueur, score):
                     return score
     return score
 
+'''
+if __name__ == "__main__":
+    genererCube(10)
+    motion_test()
+'''
+
 def game(screen,police):
     genererCube(10)
     motion_test()  
+    
+    

@@ -14,7 +14,7 @@ def get_image(path):
 
 def rules(screen,police):
 	#BG
-	screen.blit(get_image('contenu/accueil.bmp'), (0,0,20, 20))
+	screen.blit(get_image('accueil.bmp'), (0,0,20, 20))
 	#TITRE
 	rules=pygame.font.SysFont('arial',70)
 	rules_space=rules.render("Règles  du  jeu",True,(255,255,255))
