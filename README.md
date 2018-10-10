@@ -61,4 +61,4 @@ This project is licensed under the MIT License.
 ## Remerciements
 
 * Merci à nos professeurs, pour le projet intéréssant
-* Merci à XX XXXX, sans qui le projet n'aurait pas eu de son 
+* Merci à Fabien GENOUD, sans qui le projet n'aurait pas eu de son 
